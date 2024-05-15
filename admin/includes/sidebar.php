@@ -50,15 +50,24 @@
                                     </div>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
+                            <div class="sb-sidenav-menu-heading">MANAGE USERS</div>
+
+
+                            <a class="nav-link collapsed" href="#" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#collapseAdmins" 
+                            aria-expanded="false" aria-controls="collapseAdmins">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                ADMINS
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
+                            <div class="collapse" id="collapseAdmins" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="create-admin.php">ADD ADMINS</a>
+                                    <a class="nav-link" href="admins.php">VIEW ADMINS</a>
+                                </nav>
+                            </div>
+                          
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
