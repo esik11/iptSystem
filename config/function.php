@@ -75,6 +75,7 @@ function redirect($url, $status){
     }
 
     function getAll($tableName, $status = NULL){
+        
         global $conn;
         
         $table = validate($tableName);
@@ -104,7 +105,7 @@ function redirect($url, $status){
             if(mysqli_num_rows($result)==1){
                 $row = mysqli_fetch_assoc($result);
                 $response =[
-                    'status' => 404,
+                    'status' => 200,
                     'data' => $row,
                     'message' => 'RECORD FOUND!'
                 ];
@@ -128,6 +129,23 @@ function redirect($url, $status){
         $result = mysqli_query($conn, $query);
         return $result;
         } 
+
+        function checkParamId($type){
+
+            if(isset($_GET[$type])){
+                if($_GET[$type]!= ''){
+
+                    return $_GET[$type];
+
+                }else{
+
+                    return '<h5>NO ID FOUND</h5>';
+                }
+
+            }else{
+                return '<h5>NO ID GIVEN</h5>';
+            }
+        }
 
 ?>
 
