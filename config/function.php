@@ -147,6 +147,11 @@ function redirect($url, $status){
             }
         }
 
+    function  logoutSession(){
+
+        unset($_SESSION['loggedIn']);
+        unset($_SESSION['loggedInUser']);
+    }
 ?>
 
 <?php

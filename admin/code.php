@@ -51,9 +51,9 @@ if (isset($_POST['saveAdmin'])) {
 
     $emailCheckQuery = "SELECT * FROM admins WHERE email = '$email' AND id!='$adminId'";
     $checkResult = mysqli_query($conn, $emailCheckQuery);
-    if( $checkResult){
-        if(mysqli_num_rows($checkResult) > 0){
-            redirect ('edit-admin.php?id'.$adminId, 'EMAIL IS ALREADY BEEN USED BY ANOTHER ADMIN!');
+    if ($checkResult) {
+        if (mysqli_num_rows($checkResult) > 0) {
+            redirect('edit-admin.php?id=' . $adminId, 'EMAIL IS ALREADY BEEN USED BY ANOTHER ADMIN!');
         }
     }
 
@@ -81,6 +81,44 @@ if (isset($_POST['saveAdmin'])) {
         redirect('edit-admin.php?id=' . $adminId, 'ADMIN UPDATED SUCCESSFULLY! :>');
     } else {
         redirect('edit-admin.php?id=' . $adminId, 'SOMETHING WENT WRONG :< :>');
+    }
+} else if (isset($_POST['saveCategory'])) {
+    $name = validate($_POST['name']);
+    $description = validate($_POST['description']);
+    $status = isset($_POST['status']) ? 1 : 0;
+
+    $data = [
+        'name' => $name,
+        'description' => $description,
+        'status' => $status
+    ];
+
+    $result = insert('categories', $data);
+
+    if ($result) {
+        redirect('categories.php', 'CATEGORY CREATED');
+    } else {
+        redirect('create-categories.php', 'SOMETHING WENT WRONG');
+    }
+} else if (isset($_POST['updateCategory'])) {
+    $categoryId = validate($_POST['categoryId']);
+
+    $name = validate($_POST['name']);
+    $description = validate($_POST['description']);
+    $status = isset($_POST['status']) ? 1 : 0;
+
+    $data = [
+        'name' => $name,
+        'description' => $description,
+        'status' => $status
+    ];
+
+    $result = update('categories', $categoryId, $data);
+
+    if ($result) {
+        redirect('edit-category.php?id=' . $categoryId, 'CATEGORY UPDATED SUCCESSFULLY');
+    } else {
+        redirect('edit-category.php?id=' . $categoryId, 'SOMETHING WENT WRONG');
     }
 } else {
     redirect('create-admin.php', 'SOMETHING WENT WRONG :< :>');

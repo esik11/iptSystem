@@ -1,4 +1,13 @@
-<?php include ('includes/header.php'); ?>
+<?php include ('includes/header.php'); 
+
+if(isset($_SESSION['loggedIn'])){
+    ?>
+    <script>window.location/.href = 'index.php'</script>
+    <?php
+
+}
+
+?>
 
 
 <div class="py-5 bg-light">
@@ -7,6 +16,7 @@
             <div class="col-md-6">
                 <div class="card shadow rounded-4">
                 </div>             
+                <?php alertMessage(); ?>
                 <div class="p-5">
                     <h4 class ="text-dark mb-3">Sign in your Cashiering System</h4>
                     <form action="login-code.php" method= "POST">
