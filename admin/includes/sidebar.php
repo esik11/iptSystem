@@ -10,7 +10,7 @@
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#"
                              data-bs-toggle="collapse"
-                              data-bs-target="#collapseITEMCATEGORY" aria-expanded="false" aria-controls="collapsITEMCATEGORY">
+                              data-bs-target="#collapseITEMCATEGORY" aria-expanded="false" aria-controls="collapseITEMCATEGORY">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 ITEM CATEGORIES
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -21,11 +21,22 @@
                                     <a class="nav-link" href="categories.php">VIEW ITEM CATEGORIES</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
+                            <a class="nav-link collapsed" href="#"
+                             data-bs-toggle="collapse"
+                              data-bs-target="#collapsePRODUCTS" aria-expanded="false" aria-controls="collapsePRODUCTS">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            PRODUCTS
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            <div class="collapse" id="collapsePRODUCTS" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="create-products.php">ADD A PRODUCT</a>
+                                    <a class="nav-link" href="products.php">VIEW PRODUCTS</a>
+                                </nav>
+                            </div>
+                            
+                            
+
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
