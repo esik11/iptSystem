@@ -3,9 +3,20 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
+
                             <a class="nav-link" href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
+                            </a>
+                             
+                            <a class="nav-link" href="order-create.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bell"></i></div>
+                                CREATE ORDER
+                            </a>
+                             
+                            <a class="nav-link" href="orders.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
+                            ORDERS
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#"
@@ -64,6 +75,22 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">MANAGE USERS</div>
+
+
+                            <a class="nav-link collapsed" href="#" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#collapseCustomer" 
+                            aria-expanded="false" aria-controls="collapseCustomer">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                CUSTOMERS
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseCustomer" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="create-customers.php">ADD CUSTOMERS</a>
+                                    <a class="nav-link" href="customers.php">VIEW CUSTOMERS</a>
+                                </nav>
+                            </div>
 
 
                             <a class="nav-link collapsed" href="#" 

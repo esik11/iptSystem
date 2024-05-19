@@ -152,6 +152,16 @@ function redirect($url, $status){
         unset($_SESSION['loggedIn']);
         unset($_SESSION['loggedInUser']);
     }
-?>
 
-<?php
+    function jsonResponse($status, $status_type, $message){
+        
+        $response = [
+            'status' => $status,
+            'status_type' => $status_type,
+            'message' => $message
+        ];
+        echo json_encode($response);
+        return;
+
+    }
+?>
