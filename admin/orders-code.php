@@ -85,4 +85,54 @@ $flag = false;
     }
 }
 
+    if(isset($_POST['proceedToPlaceBtn']))
+    {
+        $phone = validate($_POST['cphone']);
+        $payment_mode = validate($_POST['payment_mode']);
+
+        //checking if customer 
+        $checkCustomer = mysqli_query($conn,"SELECT * FROM customers WHERE phone='$phone' LIMIT 1");
+        if($checkCustomer){
+            if(mysqli_num_rows( $checkCustomer ) > 0)
+            {
+                $_SESSION['invoice_no'] = "INV-".rand(111111,999999);
+                $_SESSION['cphone'] = $phone;
+                $_SESSION['payment_mode'] = $payment_mode;
+                jsonResponse(200, 'Success', 'CustomerFOUND');
+            }
+            else{
+                $_SESSION['cphone'] = $phone;
+                jsonResponse(404, 'warning', 'Customer nOT FOUND');
+            }
+        }
+        else
+        {
+            jsonResponse(500, 'error', 'Something Went wrong');
+        }
+    }
+
+    if(isset($_POST['saveCustomerBtn']))
+    {
+        $name = validate($_POST['name']);
+        $phone = validate($_POST['phone']);
+        $email = validate($_POST['email']);
+
+        if($name != '' && $phone != '')
+        {
+            $data = [
+                'name' => $name,
+                'phone' => $phone,
+                'email' => $email,
+            ];
+            $result = insert('customers', $data);
+            if( $result){
+                jsonResponse(200, 'success!', 'customer added/created');
+            }else{
+                jsonResponse(500, 'error!', 'something went wrong');
+            }
+        }else{
+            jsonResponse(422, 'warning', 'please fill required fields');
+        }
+    }
+
 ?>
