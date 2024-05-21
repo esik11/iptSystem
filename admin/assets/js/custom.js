@@ -150,4 +150,40 @@ $(document).ready(function () {
             swal("Please fill required fields", "", "warning");
         }
     });
+    
+    $(document).on('click', '#saveOrder', function () {
+        $.ajax({
+            type: "POST",
+            url: "orders-code.php",
+            data: {
+                'saveOrder': true
+            },
+            success: function (response) {
+                console.log(response); // Debug: Log the raw response
+    
+                try {
+                    var res = JSON.parse(response);
+    
+                    console.log(res); // Debug: Log the parsed response
+    
+                    if (res.status == 200) {
+                        swal("Success", res.message, "success");
+                        $('#orderPlaceSuccessMessage').text(res.message);
+                        $('#orderSuccessModal').modal('show');
+                    } else {
+                        swal("Warning", res.message, "warning");
+                    }
+                } catch (e) {
+                    console.error("Error parsing JSON response:", e);
+                    console.error("Raw response:", response);
+                    swal("Error", "Unexpected response format. Please try again.", "error");
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("AJAX error:", status, error);
+                swal("Error", "An error occurred while processing your request. Please try again.", "error");
+            }
+        });
+    });
+
 });
