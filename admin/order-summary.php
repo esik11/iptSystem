@@ -16,7 +16,7 @@ if(!isset($_SESSION['productItems']) || empty($_SESSION['productItems'])){
           <h5 id="orderPlaceSuccessMessage"></h5>
         </div>
         <a href="orders.php" class="btn btn-secondary">Close</a>
-        <button type="button" class="btn btn-secondary" onclick="window.print();">Print</button>
+        <button type="button" class="btn btn-secondary" onclick="window.printMyBillingArea();">Print</button>
         <button type="button" class="btn btn-secondary" id="downloadPdfBtn">Download PDF</button>
       </div>
     </div>

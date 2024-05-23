@@ -185,5 +185,15 @@ $(document).ready(function () {
             }
         });
     });
-
 });
+
+function printMyBillingArea(){
+    var divContents = document.getElementById("myBillingArea").innerHTML;
+    var a = window.open('', '');
+    a.document.write( '<html><title>THRIFT SHOP CASHIERING SYSTEM</title>');
+    a.document.write( '<body style = "font-family: fangsong;">');
+    a.document.write( divContents);
+    a.document.write( '</body></html>');
+    a.document.close();
+    a.print();
+}
